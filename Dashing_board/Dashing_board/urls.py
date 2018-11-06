@@ -3,10 +3,12 @@ Definition of urls for Dashing_board.
 """
 
 from django.conf.urls import include, url
-import dash.urls
+from TestApp.widgets import Weather
+from dashing.utils import router
 
 import TestApp.views
 
+#router.register(Weather, 'weather_widget')
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin
 # admin.autodiscover()
@@ -22,16 +24,10 @@ urlpatterns = [
     # Uncomment the next line to enable the admin:
     # url(r'^admin/', include(admin.site.urls)),
 
-	#url(r'^$', TestApp.views.index, name='index'),
-	url(r'^home$', TestApp.views.index, name='home'),
-	url(r'^dashboard/', include(dash.urls)),
+	url(r'^$', include(router.urls)),
 
-	# django-dash stuff stolen from the docs
-	# django-dash RSS contrib plugin URLs:
-	url(r'^dash/contrib/plugins/rss-feed/',
-    include('dash.contrib.plugins.rss_feed.urls')),
+	url(r'^weather/$', Weather.as_view(), name='weather_widget'),
 
-	# django-dash public dashboards contrib app:
-	url(r'^', include('dash.contrib.apps.public_dashboard.urls')),
+	#url(r'^index$', TestApp.views.index, name='index'),
 	
 ]

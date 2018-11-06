@@ -1,0 +1,9 @@
+﻿{% extends 'dashing/base.html' %}
+{% load staticfiles %}
+
+{% block config_file %}
+<script type="text/javascript">
+	var var1 = "420";
+</script>
+<script type="text/javascript" src="{% static 'dashing-config.js' %}"></script>
+{% endblock %}
