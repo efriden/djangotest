@@ -33,6 +33,25 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     # Add your apps here to enable them
+	# My apps
+	'TestApp',
+
+	# Dash
+	'dash',
+	# Dash extra stuff. Redundant stuff here almost guaranteed. Taken from the docs.
+	'dash.contrib.layouts.android',
+    'dash.contrib.layouts.bootstrap2',
+    'dash.contrib.layouts.windows8',
+    'dash.contrib.plugins.dummy',
+    'dash.contrib.plugins.image',
+    'dash.contrib.plugins.memo',
+    'dash.contrib.plugins.rss_feed',
+    'dash.contrib.plugins.url',
+    'dash.contrib.plugins.video',
+    'dash.contrib.plugins.weather',
+
+
+	# Default stuff
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

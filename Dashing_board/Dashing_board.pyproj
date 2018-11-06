@@ -35,12 +35,24 @@
     <Compile Include="Dashing_board\settings.py" />
     <Compile Include="Dashing_board\urls.py" />
     <Compile Include="Dashing_board\wsgi.py" />
+    <Compile Include="TestApp\admin.py" />
+    <Compile Include="TestApp\apps.py" />
+    <Compile Include="TestApp\migrations\__init__.py" />
+    <Compile Include="TestApp\models.py" />
+    <Compile Include="TestApp\tests.py" />
+    <Compile Include="TestApp\views.py" />
+    <Compile Include="TestApp\__init__.py" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="requirements.txt" />
+    <Content Include="TestApp\templates\TestApp\index.html" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Dashing_board\" />
+    <Folder Include="TestApp\" />
+    <Folder Include="TestApp\migrations\" />
+    <Folder Include="TestApp\templates\" />
+    <Folder Include="TestApp\templates\TestApp\" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
