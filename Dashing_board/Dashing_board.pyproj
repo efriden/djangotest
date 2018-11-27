@@ -48,6 +48,7 @@
     <Compile Include="TestApp\__init__.py" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Procfile" />
     <Content Include="requirements.txt" />
     <Content Include="TestApp\static\dashing-config.js" />
     <Content Include="TestApp\templates\dashing\dashboard.html" />
