@@ -50,6 +50,7 @@
   <ItemGroup>
     <Content Include="Dashing_board\Procfile" />
     <Content Include="requirements.txt" />
+    <Content Include="runtime.txt" />
     <Content Include="TestApp\static\dashing-config.js" />
     <Content Include="TestApp\templates\dashing\dashboard.html" />
     <Content Include="TestApp\templates\TestApp\index.html" />
