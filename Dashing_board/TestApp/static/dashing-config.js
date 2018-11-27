@@ -4,61 +4,67 @@ var dashboard = new Dashboard();
 
 dashboard.addWidget('clock_widget', 'Clock');
 
-dashboard.addWidget('weather_widget', 'Number', {
-	getData: function () {
-		var self = this;
-		$.get('/weather/', function (data) {
-			self.scope = data;
-			dashboard.publish('weather_widget/render');
-		});
-		dashboard.publish('weather_widget/render');
-	}
-});
-
-//dashboard.addWidget('current_valuation_widget', 'Number', {
+//dashboard.addWidget('knob_widget', 'Knob', {
 //	getData: function () {
 //		$.extend(this.scope, {
-//			title: 'Current Valuation',
-//			moreInfo: 'In billions',
-//			updatedAt: 'Last updated at 14:10',
-//			detail: '64%',
-//			value: var1
+//			title: "Arc",
+//			data: {
+//				angleArc: 270,
+//				fgColor: "lightgreen",
+//				angleOffset: 225,
+//				displayInput: false,
+//				displayPrevious: false,
+//				step: 1,
+//				min: 0,
+//				max: 100,
+//				readOnly: true
+//			},
+//			value: 14,
+//			moreInfo: "Mer info."
 //		});
 //	}
 //});
 
-dashboard.addWidget('buzzwords_widget', 'List', {
+dashboard.addWidget('weather_widget', 'Number', {
 	getData: function () {
-		$.extend(this.scope, {
-			title: 'Buzzwords',
-			moreInfo: '# of times said around the office',
-			updatedAt: 'Last updated at 18:58',
-			data: [{ label: 'Exit strategy', value: 24 },
-			{ label: 'Web 2.0', value: 12 },
-			{ label: 'Turn-key', value: 2 },
-			{ label: 'Enterprise', value: 12 },
-			{ label: 'Pivoting', value: 3 },
-			{ label: 'Leverage', value: 10 },
-			{ label: 'Streamlininess', value: 4 },
-			{ label: 'Paradigm shift', value: 6 },
-			{ label: 'Synergy', value: 7 }]
+		var self = this;
+		$.get('/weather/', function (data) {
+			$.extend(self.scope, {
+				title: data.title,
+				moreInfo: data.moreInfo,
+				updatedAt: data.updatedAt,
+				detail: data.detail,
+				value: data.value
+			});
 		});
 	}
 });
 
-dashboard.addWidget('convergence_widget', 'Graph', {
+dashboard.addWidget('trello_widget', 'List', {
 	getData: function () {
-		$.extend(this.scope, {
-			title: 'Convergence',
-			value: '41',
-			moreInfo: '',
-			data: [
-				{ x: 0, y: 40 },
-				{ x: 1, y: 49 },
-				{ x: 2, y: 38 },
-				{ x: 3, y: 30 },
-				{ x: 4, y: 32 }
-			]
+		var self = this;
+		$.get('/trello/', function (data) {
+			console.log(data);
+			$.extend(self.scope, {
+				title: data.title,
+				moreInfo: data.moreInfo,
+				updatedAt: data.updatedAt,
+				data: data.data
+			});
+		});
+	}
+});
+
+dashboard.addWidget('forecast_widget', 'Graph', {
+	getData: function () {
+		var self = this;
+		$.get('/forecast/', function (data) {
+			$.extend(self.scope, {
+				title: data.title,
+				moreInfo: data.moreInfo,
+				data: data.data,
+				value: data.value
+			})
 		});
 	}
 });
